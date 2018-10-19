@@ -50,7 +50,7 @@ class TeamTest extends TestCase
     }
 
     /** @test */
-    public function it_has_a_maximum_size_even_when_adding_multiple_users_at_once()
+    public function it_also_has_a_maximum_size_when_adding_multiple_users_at_once()
     {
         $team = factory(Team::class)->create(['size' => 2]);
         $users = factory(User::class, 3)->create();
