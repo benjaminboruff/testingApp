@@ -2,11 +2,20 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\BrowserKitTestCase;
 
-class ExampleTest extends TestCase
+//use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class ExampleTest extends BrowserKitTestCase
 {
+    use MailTracking;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->setUpMailTracking();
+    }
+
     /**
      * A basic test example.
      *
@@ -14,8 +23,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        // $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // $response->assertStatus(200);
+        $this->visit('/')
+            ->seeEmailWasSent();
     }
 }

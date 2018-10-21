@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    Mail::raw('Hello world', function ($message) {
+        $message->to('foo@bar.com');
+        $message->from('bar@foo.com');
+        $message->subject('the dude');
+    });
+    return "Email was sent!";
 });
 Route::get('feedback', function () {
     return "Dude!";
