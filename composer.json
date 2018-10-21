@@ -33,7 +33,8 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "tests/helpers/functions.php"
+            "tests/helpers/functions.php",
+            "tests/Feature/MailTracking.php"
         ]
     },
     "extra": {
